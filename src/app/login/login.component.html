@@ -1,0 +1,66 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png" id="icon" alt="User Icon"
+                style="height: 20px;width: 20px;" />
+        </div>
+
+          <!-- {{loginForm | json}}
+          {{users | json}} -->
+
+        <form>
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="username"
+                [(ngModel)]="loginForm.username">
+
+               
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"
+                [(ngModel)]="loginForm.password">
+
+               
+            <input type="button" *ngIf="!editClicked" (click)="save()" class="fadeIn fourth" value="Add User">
+            <input type="button" *ngIf="editClicked" (click)="update()" class="fadeIn fourth" value="Update User">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+            <!-- table -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr *ngFor="let a of users; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{a.username}}</td>
+                        <td>{{a.password}}</td>
+                        <td>
+                            <span style="margin: 1px;">
+                                <button class="btn btn-danger btn-sm" (click)="delete(i)">Delete</button> 
+                                <button class="btn btn-info btn-sm" (click)="edit(a)">Edit</button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+</div>

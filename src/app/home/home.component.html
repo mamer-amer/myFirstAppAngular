@@ -1,0 +1,14 @@
+<h1>This is my home component</h1>
+
+<h1 *ngIf="(userType=='admin' || userType=='super_user') &&  roleId==555">
+    Here is the sensitive information {{userType.split('_').join(' ')}}
+</h1>
+
+
+<h1 *ngFor="let count of countArray;let i=index">
+
+    My name is Amer {{i}}
+    <p *ngIf="count==555">Here is the sensitive information</p>
+</h1>
+
+<!-- ng for that runs 5 times -->
